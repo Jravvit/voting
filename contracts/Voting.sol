@@ -88,7 +88,7 @@ contract Voting {
 	}
 
 	function getLastCandidateId() public view returns(uint) {
-		return lasetCandidateId;
+		return lastCandidateId;
 	}
 
 	function getLastElection() public view returns(uint, string, uint, uint, uint, uint) {
@@ -96,7 +96,7 @@ contract Voting {
 	}
 
 	function getLastCandidate() public view returns(uint, bytes32, bytes32, uint, uint) {
-		return (candidates[lasetCandidateId].uid, candidates[lasetCandidateId].name, candidates[lasetCandidateId].major, candidates[lasetCandidateId].electionID,candidates[lasetCandidateId].theTotalVotes);
+		return (candidates[lastCandidateId].uid, candidates[lastCandidateId].name, candidates[lastCandidateId].major, candidates[lastCandidateId].electionID,candidates[lastCandidateId].theTotalVotes);
 	}
 
 	function getLastVoter() public view returns(uint, uint, uint) {
