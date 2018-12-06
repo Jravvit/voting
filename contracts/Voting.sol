@@ -23,8 +23,8 @@ contract Voting {
 
 	struct Candidate {
 		uint uid;
-		bytes32 name;
-		bytes32 major;
+		string name;
+		string major;
 		bool doesExist;
 		uint electionID;
 		uint theTotalVotes;
@@ -44,9 +44,9 @@ contract Voting {
 		lastElectionId = uid;
 	}
 
-	function addCandidate(uint uid, bytes32 name, bytes32 major, uint electionId) public {
+	function addCandidate(uint uid, string name, string major, uint electionId) public {
 		candidates[uid] = Candidate(uid, name,major,true,electionId,0);
-		elections[electionId].candidatesNum = elections[electionId].candidatesNum++;
+		elections[electionId].candidatesNum = elections[electionId].candidatesNum+1;
 		lastCandidateId = uid;
 	}
 
@@ -71,7 +71,7 @@ contract Voting {
 		return (elections[electionId].uid, elections[electionId].title, elections[electionId].start_time, elections[electionId].end_time, elections[electionId].totalVotesCount, elections[electionId].candidatesNum);
 	}
 
-	function getCandidate(uint candidateId) public view returns(uint, bytes32, bytes32, uint, uint) {
+	function getCandidate(uint candidateId) public view returns(uint, string, string, uint, uint) {
 		return (candidates[candidateId].uid, candidates[candidateId].name, candidates[candidateId].major, candidates[candidateId].electionID,candidates[candidateId].theTotalVotes);
 	}
 
@@ -83,7 +83,7 @@ contract Voting {
 		return lastElectionId;
 	}
 
-	function getVoterId() public view returns(uint) {
+	function getLastVoterId() public view returns(uint) {
 		return lastVoterId;
 	}
 
@@ -95,7 +95,7 @@ contract Voting {
 		return (elections[lastElectionId].uid, elections[lastElectionId].title, elections[lastElectionId].start_time, elections[lastElectionId].end_time, elections[lastElectionId].totalVotesCount, elections[lastElectionId].candidatesNum);
 	}
 
-	function getLastCandidate() public view returns(uint, bytes32, bytes32, uint, uint) {
+	function getLastCandidate() public view returns(uint, string, string, uint, uint) {
 		return (candidates[lastCandidateId].uid, candidates[lastCandidateId].name, candidates[lastCandidateId].major, candidates[lastCandidateId].electionID,candidates[lastCandidateId].theTotalVotes);
 	}
 
