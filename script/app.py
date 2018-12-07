@@ -11,7 +11,7 @@ import sys
 with open("/home/ubuntu/script/voting/build/contracts/Voting.json", 'r') as f:
 		js = json.load(f)
 		abi = js['abi']
-		address = js['networks']['4447']['address']
+		address = js['networks']['3']['address']
 
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:9545"))
 w3.eth.defaultAccount = w3.eth.accounts[0]
