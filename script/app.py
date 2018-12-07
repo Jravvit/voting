@@ -13,7 +13,7 @@ with open("/home/ubuntu/script/voting/build/contracts/Voting.json", 'r') as f:
 		abi = js['abi']
 		address = js['networks']['3']['address']
 
-w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:9545"))
+w3 = Web3(Web3.HTTPProvider("https://ropsten.infura.io/v3/613e792e8a704ba1a4e370cf1236e24f"))
 w3.eth.defaultAccount = w3.eth.accounts[0]
 
 adr = w3.toChecksumAddress(address)
