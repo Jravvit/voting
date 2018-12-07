@@ -11,11 +11,11 @@ import sys
 with open("/home/ubuntu/script/voting/build/contracts/Voting.json", 'r') as f:
 		js = json.load(f)
 		abi = js['abi']
-		address = js['networks']['3']['address']
+		address = js['networks']['42']['address']
 
-w3 = Web3(Web3.HTTPProvider("https://ropsten.infura.io/v3/613e792e8a704ba1a4e370cf1236e24f"))
+w3 = Web3(Web3.HTTPProvider("https://kovan.infura.io/v3/613e792e8a704ba1a4e370cf1236e24f"))
 # w3.eth.defaultAccount = w3.eth.accounts[0]
-w3.eth.defaultAccount = "0xBE21fb24084BE140452f4CA5159c9A1A052e800c"
+w3.eth.defaultAccount = "0xd52Fb557d3f350e88157f89851e98C0368010CF4"
 
 adr = w3.toChecksumAddress(address)
 voting = w3.eth.contract(address=adr,abi=abi)
